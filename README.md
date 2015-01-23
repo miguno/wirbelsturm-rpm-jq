@@ -108,6 +108,6 @@ to send patches and pull requests to wirbelsturm-rpm-jq.
 
 # License
 
-Copyright © 2014 Michael G. Noll
+Copyright © 2015 Michael G. Noll
 
 See [LICENSE](LICENSE) for licensing information.
