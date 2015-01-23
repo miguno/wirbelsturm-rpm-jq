@@ -18,12 +18,6 @@ MAINTAINER="<michael@michael-noll.com>"
 
 ### CONFIGURATION ENDS ###
 
-if [ "$OS" = "$OS_MAC" ]; then
-  declare -r SED_OPTS="-E"
-else
-  declare -r SED_OPTS="-r"
-fi
-
 function print_usage() {
     myself=`basename $0`
     echo "Usage: $myself <jq-download-url-or-local-path>"
@@ -68,7 +62,7 @@ elif [ -f "$MY_DIR/$JQ_URI" ]; then
 fi
 
 chmod +x ./$JQ
-JQ_VERSION=`./$JQ --version 2>&1 | sed $SED_OPTS 's/^.*([0-9]+\.[0-9]+)$/\1/'`
+JQ_VERSION=`./$JQ --version 2>&1 | sed -r 's/^.*([0-9]+\.[0-9]+)$/\1/'`
 echo "Building an RPM for ${JQ_VERSION}..."
 
 # Build the RPM
